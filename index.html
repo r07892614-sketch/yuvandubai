@@ -17,41 +17,330 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=806816179023233&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuvan Dubai ™ {OFFICIAL}</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuvan Dubai ™</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --bg1:#0d0004;
+  --bg2:#1a000a;
+
+  --p1:#ff0033;
+  --p2:#ff4f6d;
+
+  --b1:#ffb2c1;
+  --b2:#ffd6dd;
+
+  --card:rgba(255,255,255,0.05);
+  --card-bd:rgba(255,255,255,0.12);
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:linear-gradient(145deg,var(--bg2),var(--bg1));
+  position:relative;
+}
+
+.blob{
+  position:absolute;
+  width:260px;height:260px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:.22;
+  animation:float 12s infinite ease-in-out alternate;
+}
+.b1{background:#ff0033;top:10%;left:10%;}
+.b2{background:#ff4f6d;bottom:12%;right:12%;animation-duration:18s;}
+.b3{background:#cc0024;top:55%;left:60%;animation-duration:20s;}
+
+@keyframes float{
+  0%{transform:translateY(0) scale(1);}
+  100%{transform:translateY(-35px) scale(1.07);}
+}
+
+.ring{
+  position:absolute;
+  border:1px solid rgba(255,50,90,.22);
+  border-radius:50%;
+  opacity:.15;
+  animation:ringMove 14s linear infinite;
+}
+.r1{width:420px;height:420px;top:20%;left:-10%;}
+.r2{width:520px;height:520px;bottom:5%;right:-12%;animation-duration:20s;}
+
+@keyframes ringMove{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+/* AVIATOR PARTICLES */
+.aviator-line{
+  position:absolute;
+  width:140px;
+  height:2px;
+  background:rgba(255,0,50,0.35);
+  transform:rotate(-15deg);
+  border-radius:2px;
+}
+
+.aviator-plane{
+  position:absolute;
+  font-size:20px;
+  opacity:0.55;
+  transform:rotate(-15deg);
+}
+
+.aviator-mult{
+  position:absolute;
+  font-size:14px;
+  color:#ff4f6d;
+  font-weight:700;
+  opacity:0.4;
+}
+
+.dot{
+  position:absolute;
+  width:4px;height:4px;
+  background:#55000f;
+  border-radius:50%;
+}
+@keyframes dotFloat{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-12px);}
+}
+
+.top-bar{
+  position:fixed;top:0;left:0;right:0;height:42px;z-index:20;
+  background:#000;
+  border-bottom:1px solid rgba(255,0,50,.4);
+}
+.ticker-wrap{overflow:hidden;height:42px;}
+.ticker{
+  position:absolute;white-space:nowrap;
+  animation:tickerMove 22s linear infinite;
+  font-size:14px;line-height:42px;color:var(--b2);
+}
+@keyframes tickerMove{
+  from{transform:translateX(100%);}
+  to{transform:translateX(-100%);}
+}
+.tick{margin-right:48px;color:var(--b2);}
+
+.container{
+  padding:90px 20px 40px;
+  text-align:center;
+  position:relative;
+  z-index:10;
+}
+
+.logo{
+  width:130px;height:130px;margin:0 auto 18px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--p1);
+}
+.logo img{width:100%;height:100%;object-fit:cover;}
+
+.title{
+  font-size:clamp(26px,6vw,38px);
+  font-weight:900;
+  margin:20px;
+  color:var(--p2);
+}
+
+.tagline{
+  font-size:15px;
+  color:#e6e6e6;
+  margin-bottom:30px;
+}
+
+.cta-button{
+  display:block;
+  width:270px;
+  margin:25px auto;
+  padding:15px;
+  background:var(--p1);
+  border-radius:30px;
+  color:#fff;
+  font-weight:900;
+  font-size:16px;
+  text-decoration:none;
+  animation:updown 2s infinite ease-in-out;
+}
+
+@keyframes updown{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
+}
+
+.cta-button:hover{
+  transform:scale(1.05);
+}
+
+.timer-section{
+  background:#160006;
+  border:1px solid var(--p2);
+  border-radius:15px;
+  padding:18px;
+  max-width:350px;
+  margin:30px auto;
+}
+.timer-title{font-weight:700;color:var(--p2);margin-bottom:10px;}
+.timer-number{font-size:26px;font-weight:900;color:#ff0033;}
+.timer-label{font-size:11px;text-transform:uppercase;}
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:14px;
+  max-width:600px;
+  margin:30px auto;
+}
+.feature-card{
+  background:#140005;
+  border:1px solid var(--card-bd);
+  border-radius:14px;
+  padding:20px 12px;
+  transition:.2s;
+}
+.feature-card:hover{
+  background:#1a0008;
+}
+.feature-title{font-weight:700;color:var(--p2);}
+.feature-desc{font-size:12px;color:#ccc;}
+</style>
 </head>
+
 <body>
-  <div class="wrapper">
-    <div class="card">
-      <div class="circle-img">
-        <img src="logo.jpg" alt="Yuvan Dubai Official">
-      </div>
 
-      <h1>Yuvan Dubai ™ {OFFICIAL} 🏏</h1>
-      <p class="subs">70 719 Subscribers</p>
-      <p class="owner">official User – <span>@YuvanDubbai</span></p>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
 
-      <p class="desc">
-        Our Cricket Analysis Specialist<br>
-        King • Our Style • Best Work<br><br>
-        <strong>Meri Guarantee Only 👇</strong>
-      </p>
+<div class="ring r1"></div>
+<div class="ring r2"></div>
 
-      <button id="joinBtn">Free [Yuvan Dubai ™ {OFFICIAL} 🏏] Join</button>
+<script>
+// dots
+for(let i=0;i<40;i++){
+  let d=document.createElement('div');
+  d.className='dot';
+  d.style.top=Math.random()*100+'vh';
+  d.style.left=Math.random()*100+'vw';
+  d.style.opacity=Math.random()*0.3+0.1;
+  document.body.appendChild(d);
+}
 
-      <div class="timer-box">
-        <p>Next update in</p>
-        <div id="timer">60</div>
-      </div>      
+// aviator streaks
+for(let i=0;i<25;i++){
+  let l=document.createElement('div');
+  l.className='aviator-line';
+  l.style.top=Math.random()*100+'vh';
+  l.style.left=Math.random()*100+'vw';
+  l.style.opacity=Math.random()*0.4+0.1;
+  document.body.appendChild(l);
+}
+
+// planes
+const planeIcons=["✈","🛩","➤"];
+for(let i=0;i<18;i++){
+  let p=document.createElement('div');
+  p.className='aviator-plane';
+  p.textContent=planeIcons[Math.floor(Math.random()*planeIcons.length)];
+  p.style.top=Math.random()*100+'vh';
+  p.style.left=Math.random()*100+'vw';
+  p.style.opacity=Math.random()*0.45+0.2;
+  document.body.appendChild(p);
+}
+
+// multipliers
+for(let i=0;i<20;i++){
+  let m=document.createElement('div');
+  m.className='aviator-mult';
+  m.textContent=(Math.random()*10+1).toFixed(2)+"x";
+  m.style.top=Math.random()*100+'vh';
+  m.style.left=Math.random()*100+'vw';
+  document.body.appendChild(m);
+}
+</script>
+
+<div class="top-bar">
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="tick">Aviator Predictions</span>
+      <span class="tick">High Accuracy Calls</span>
+      <span class="tick">Fast Signal Flow</span>
+      <span class="tick">Trusted by Thousands</span>
     </div>
+  </div>
+</div>
 
+<div class="container">
+
+  <div class="logo"><img src="logo.jpg"></div>
+
+  <h1 class="title">Yuvan Dubai ™</h1>
+
+  <p class="tagline">
+    Cricket Analysis & Treding Specialist<br>
+    Jackpot king Treding Style Best Work
+  </p>
+
+  <a href="https://t.me/+R649E_F6k48wNzA1" class="cta-button">Join Telegram Now</a>
+
+  <div class="timer-section">
+    <div class="timer-title">Next Signal Drop In</div>
+    <div class="timer-number" id="seconds">30</div>
+    <div class="timer-label">Seconds</div>
   </div>
 
-  <script src="script.js"></script>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-title">Live Signals</div>
+      <div class="feature-desc">Fast-paced accurate drops.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Aviator Logic</div>
+      <div class="feature-desc">Pattern-driven predictions.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Instant Alerts</div>
+      <div class="feature-desc">No-delay broadcasting.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Session Stability</div>
+      <div class="feature-desc">Consistent call tracking.</div>
+    </div>
+  </div>
+
+  <a href="https://t.me/+R649E_F6k48wNzA1" class="cta-button">Join Telegram Now</a>
+
+</div>
+
+<script>
+let redirectUrl="https://t.me/+R649E_F6k48wNzA1";
+function updateTimer(){
+  const el=document.getElementById('seconds');
+  let s=parseInt(el.textContent,10);
+  s--;
+  if(s<0){
+    window.location.href=redirectUrl;
+    return;
+  }
+  el.textContent=s.toString().padStart(2,'0');
+}
+setInterval(updateTimer,1000);
+</script>
+
 </body>
 </html>
+
 
 
 
